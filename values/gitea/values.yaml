@@ -166,7 +166,6 @@ service:
 ## @extra ingress.apiVersion Specify APIVersion of ingress object. Mostly would only be used for argocd.
 ingress:
   enabled: true
-  # className: nginx
   className: nginx
   annotations:
     {}
@@ -424,6 +423,8 @@ gitea:
     server:
       SSH_PORT: 22 # rootful image
       SSH_LISTEN_PORT: 2222 # rootless image
+    webhook:
+      ALLOWED_HOST_LIST: jenkins.jenkins.svc.cluster.local
   #
   #  security:
   #    PASSWORD_COMPLEXITY: spec

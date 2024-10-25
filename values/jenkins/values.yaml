@@ -412,7 +412,12 @@ controller:
   installLatestSpecifiedPlugins: false
 
   # -- List of plugins to install in addition to those listed in controller.installPlugins
-  additionalPlugins: []
+  additionalPlugins:
+    - pipeline-stage-view:2.34
+    - multibranch-scan-webhook-trigger:1.0.11
+    - basic-branch-build-strategies:81.v05e333931c7d
+    - discord-notifier:260.v8f28622b_a_6b_7
+    - solarized-theme:0.1
 
   # Without this; whenever the controller gets restarted (Evicted, etc.) it will fetch plugin updates that have the potential to cause breakage.
   # Note that for this to work, `persistence.enabled` needs to be set to `true`
