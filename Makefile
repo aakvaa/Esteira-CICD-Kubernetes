@@ -6,15 +6,17 @@ pre:
 		--for=condition=ready pod \
 		--selector=app=metallb \
 		--timeout=300s
-	@kubectl apply -f manifests/
 
 helm:
 	@helmfile apply
 
+post:
+	@kubectl apply -f manifests/
+
 create:
 	@kind create cluster --config config.yaml
 
-up: create pre helm
+up: create pre helm post
 
 destroy:
 	@kind delete clusters kind
